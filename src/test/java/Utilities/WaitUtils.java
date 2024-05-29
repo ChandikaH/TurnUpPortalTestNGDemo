@@ -65,4 +65,11 @@ public class WaitUtils {
         }
     }
 
+    public static void waitFor(int milliseconds) {
+        try {
+            Thread.sleep(milliseconds);
+        } catch (InterruptedException e) {
+            throw new RuntimeException(e);
+        }
+    }
 }

@@ -7,8 +7,10 @@ import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.testng.Assert;
 
+import static Utilities.WaitUtils.waitFor;
+
 public class TimeMaterialPage {
-    public void CreateTimeRecord(WebDriver webDriver) throws InterruptedException {
+    public void CreateTimeRecord(WebDriver webDriver) {
         //Create a new Time/Material record
 
         //click on the Create New Button
@@ -44,7 +46,7 @@ public class TimeMaterialPage {
         WebElement saveButton = webDriver.findElement(By.id("SaveButton"));
         saveButton.click();
 
-        Thread.sleep(5000);
+        waitFor(5000);
 
         //Check if a new Time/Material record has been created successfully
         WebElement goToLastPageButton = webDriver.findElement(By.xpath("//*[@id=\"tmsGrid\"]/div[4]/a[4]/span"));
@@ -66,16 +68,16 @@ public class TimeMaterialPage {
         Assert.assertEquals(newCode.getText(), "ICMarch2024", "New Time record has not been created");
     }
 
-    public void EditNewlyCreatedTMRecord(WebDriver webDriver) throws InterruptedException {
+    public void EditNewlyCreatedTMRecord(WebDriver webDriver) {
         //Code for Edit Time Record
         WebElement goToLastPageButton = webDriver.findElement(By.xpath("//*[@id=\"tmsGrid\"]/div[4]/a[4]/span"));
         goToLastPageButton.click();
-        Thread.sleep(3000);
+        waitFor(3000);
 
         //click on Edit Button
         WebElement editButton = webDriver.findElement(By.xpath("//tbody/tr[last()]/td[5]/a[1]"));
         editButton.click();
-        Thread.sleep(3000);
+        waitFor(3000);
 
         //Edit Code in Code Textbox
         WebElement editCodeTextbox = webDriver.findElement(By.id("Code"));
@@ -99,7 +101,7 @@ public class TimeMaterialPage {
         //click on save button
         WebElement editSaveButton = webDriver.findElement(By.id("SaveButton"));
         editSaveButton.click();
-        Thread.sleep(4000);
+        waitFor(4000);
 
         // Clock on goToLastPage Button
         WebElement editGoToLastPageButton = webDriver.findElement(By.xpath("//*[@id=\"tmsGrid\"]/div[4]/a[4]/span"));
@@ -110,12 +112,12 @@ public class TimeMaterialPage {
         Assert.assertEquals(editedCode.getText(), "IC2024Edited", "Time Record has not been updated");
     }
 
-    public void DeleteTMRecord(WebDriver webDriver) throws InterruptedException {
+    public void DeleteTMRecord(WebDriver webDriver) {
         //Code for Delete Time Record
         WaitUtils.WaitToBeVisible(webDriver, "Xpath", "//*[@id=\"tmsGrid\"]/div[4]/a[4]/span", 5);
         WebElement goToLastPageButton = webDriver.findElement(By.xpath("//*[@id=\"tmsGrid\"]/div[4]/a[4]/span"));
         goToLastPageButton.click();
-        Thread.sleep(3000);
+        waitFor(3000);
 
         //click on delete button
         WebElement deleteButton = webDriver.findElement(By.xpath("//*[@id=\"tmsGrid\"]/div[3]/table/tbody/tr[last()]/td[5]/a[2]"));

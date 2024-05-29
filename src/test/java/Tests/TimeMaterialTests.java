@@ -33,17 +33,17 @@ public class TimeMaterialTests extends CommonDriver {
      *Type = IC2024March
      */
     @Test(priority = 1, description = "This test create a new Time/Material record with valid details")
-    public void TestCreateTimeMaterialRecord() throws InterruptedException {
+    public void TestCreateTimeMaterialRecord() {
         tmPageObj.CreateTimeRecord(webDriver);
     }
 
     @Test(priority = 2, description = "This test update the Time/Material record with valid details")
-    public void TestUpdateTimeMaterialRecord() throws InterruptedException {
+    public void TestUpdateTimeMaterialRecord() {
         tmPageObj.EditNewlyCreatedTMRecord(webDriver);
     }
 
     @Test(priority = 3, description = "This test delete the last Time/Material record")
-    public void TestDeleteTimeMaterialRecord() throws InterruptedException {
+    public void TestDeleteTimeMaterialRecord() {
         tmPageObj.DeleteTMRecord(webDriver);
     }
 
