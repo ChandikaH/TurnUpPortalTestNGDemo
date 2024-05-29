@@ -127,6 +127,6 @@ public class TimeMaterialPage {
         simpleAlert.accept();
 
         WebElement lastCodeInTable = webDriver.findElement(By.xpath("//*[@id=\"tmsGrid\"]/div[3]/table/tbody/tr[last()]/td[1]"));
-        Assert.assertEquals(lastCodeInTable.getText(), "IC2024Edited", "Time Record has not been deleted");
+        Assert.assertNotEquals(lastCodeInTable.getText(), "IC2024Edited", "Time Record has not been deleted");
     }
 }
