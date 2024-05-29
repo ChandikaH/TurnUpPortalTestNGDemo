@@ -15,7 +15,7 @@ public class LoginPage {
     WebElement loginButton;
 
     public void LoginActions(WebDriver webDriver, String username, String password) {
-        webDriver.manage().window().maximize();
+        //webDriver.manage().window().maximize();
         webDriver.manage().timeouts().implicitlyWait(Duration.ofSeconds(2));
 
         //Launch turnUp Portal and navigate to login page

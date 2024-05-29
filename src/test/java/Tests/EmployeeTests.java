@@ -4,10 +4,7 @@ import Pages.EmployeePage;
 import Pages.HomePage;
 import Pages.LoginPage;
 import Utilities.CommonDriver;
-import org.openqa.selenium.chrome.ChromeDriver;
-import org.testng.annotations.AfterTest;
-import org.testng.annotations.BeforeTest;
-import org.testng.annotations.Test;
+import org.testng.annotations.*;
 
 public class EmployeeTests extends CommonDriver {
     //Login page object initialization and definition
@@ -17,11 +14,11 @@ public class EmployeeTests extends CommonDriver {
     //Employee page object initialization and definition
     EmployeePage employeePageObj = new EmployeePage();
 
-    @BeforeTest
-    public void SetUp() {
+    @BeforeMethod
+    public void SetUpEmployeeTests() {
         //Open Chrome Browser
-        webDriver = new ChromeDriver();
-
+        //webDriver = new ChromeDriver();
+        SetUpBrowser();
         loginPageObj.LoginActions(webDriver, "hari", "123123");
         System.out.println("User logged in successfully - EmployeeTests");
         homePageObj.VerifyLoggedInUser(webDriver);
@@ -44,7 +41,7 @@ public class EmployeeTests extends CommonDriver {
         employeePageObj.DeleteEmployeeRecord(webDriver);
     }
 
-    @AfterTest
+    @AfterMethod
     public void CloseTestRun() {
         webDriver.quit();
     }

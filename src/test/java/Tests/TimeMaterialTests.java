@@ -4,10 +4,7 @@ import Pages.HomePage;
 import Pages.LoginPage;
 import Pages.TimeMaterialPage;
 import Utilities.CommonDriver;
-import org.openqa.selenium.chrome.ChromeDriver;
-import org.testng.annotations.AfterTest;
-import org.testng.annotations.BeforeTest;
-import org.testng.annotations.Test;
+import org.testng.annotations.*;
 
 public class TimeMaterialTests extends CommonDriver {
     //Login page object initialization and definition
@@ -17,10 +14,11 @@ public class TimeMaterialTests extends CommonDriver {
     //TM page object initialization and definition
     TimeMaterialPage tmPageObj = new TimeMaterialPage();
 
-    @BeforeTest
+    @BeforeMethod
     public void SetUpTimeMaterial() {
         //Open Chrome Browser
-        webDriver = new ChromeDriver();
+        //webDriver = new ChromeDriver();
+        SetUpBrowser();
         loginPageObj.LoginActions(webDriver, "hari", "123123");
         homePageObj.VerifyLoggedInUser(webDriver);
         System.out.println("User logged in successfully");
@@ -47,7 +45,7 @@ public class TimeMaterialTests extends CommonDriver {
         tmPageObj.DeleteTMRecord(webDriver);
     }
 
-    @AfterTest
+    @AfterMethod
     public void CloseTestRun() {
         webDriver.quit();
     }
