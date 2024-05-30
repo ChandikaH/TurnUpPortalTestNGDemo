@@ -31,7 +31,7 @@ public class WaitUtils {
         }
     }
 
-    public static void WaitToBeclickable(WebDriver webDriver, String locatorType, String locatorValue, int seconds) {
+    public static void WaitToBeClickable(WebDriver webDriver, String locatorType, String locatorValue, int seconds) {
         WebDriverWait webDriverWait = new WebDriverWait(webDriver, Duration.ofSeconds(seconds));
 
         if (locatorType == XPATH) {
