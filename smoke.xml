@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd">
+<suite name="Smoke Test Suite">
+    <test verbose="2" preserve-order="true" name="C:/gitProjects/DEMO/TurnUpPortalTestNGDemo/TurnUpPortalTestNGDemo">
+        <classes>
+            <class name="Tests.EmployeeTests">
+                <methods>
+                    <include name="TestCreateEmployeeRecord"/>
+                </methods>
+            </class>
+            <class name="Tests.TimeMaterialTests">
+                <methods>
+                    <include name="TestCreateTimeMaterialRecord"/>
+                </methods>
+            </class>
+        </classes>
+    </test>
+</suite>

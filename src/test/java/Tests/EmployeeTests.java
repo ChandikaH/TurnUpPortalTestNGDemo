@@ -36,11 +36,14 @@ public class EmployeeTests extends CommonDriver {
 
     @Test(priority = 2, description = "This test update the Employee record with valid details")
     public void TestUpdateEmployeeRecord() {
+        //Adding the Employee creation flow to make tests independent of each other when executed in parallel
+        employeePageObj.CreateEmployeeRecord(webDriver);
         employeePageObj.EditEmployeeRecord(webDriver);
     }
 
     @Test(priority = 3, description = "This test delete the last Employee record")
     public void TestDeleteEmployeeRecord() {
+        employeePageObj.CreateEmployeeRecord(webDriver);
         employeePageObj.DeleteEmployeeRecord(webDriver);
     }
 
