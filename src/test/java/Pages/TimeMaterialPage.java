@@ -190,9 +190,9 @@ public class TimeMaterialPage {
         WebElement updatedDescription = driver.findElement(By.xpath("//*[@id='tmsGrid']/div[3]/table/tbody/tr[last()]/td[3]"));
         WebElement updatedPrice = driver.findElement(By.xpath("//*[@id='tmsGrid']/div[3]/table/tbody/tr[last()]/td[4]"));
 
-        dev.failsafe.internal.util.Assert.isTrue(updatedTypeCode.getText().contains(typeCode), "Material record hasn't been created");
-        dev.failsafe.internal.util.Assert.isTrue(updatedDescription.getText().contains(description), "Material record hasn't been created");
-        dev.failsafe.internal.util.Assert.isTrue(updatedPrice.getText().contains(price), "Material record hasn't been created");
+        Assert.assertTrue(updatedTypeCode.getText().contains(typeCode), "Material record hasn't been created");
+        Assert.assertTrue(updatedDescription.getText().contains(description), "Material record hasn't been created");
+        Assert.assertTrue(updatedPrice.getText().contains(price), "Material record hasn't been created");
     }
 
     public void DeleteTimeRecord(WebDriver driver) {
